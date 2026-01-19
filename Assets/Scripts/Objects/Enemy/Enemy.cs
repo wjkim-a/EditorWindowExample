@@ -130,9 +130,7 @@ public class Enemy : ObjectBase
 
     private void Die()
     {
-#if TESTPLAY
-        OnStartAction.AddListener(Die);
-#endif
+        OnDieAction?.Invoke();
         ObjectManager.Instance.Player.Model.AddGold(_rewardValue);
         gameObject.SetActive(false);
     }

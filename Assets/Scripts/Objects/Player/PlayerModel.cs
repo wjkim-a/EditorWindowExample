@@ -50,6 +50,16 @@ public class PlayerModel : IPlayerModel
         OnUpdateHpAction?.Invoke(_playerCurHP, _playerMaxHP);
     }
 
+    public void AddHp(float hp)
+    {
+        _playerCurHP += hp;
+
+        if(_playerCurHP > _playerMaxHP)
+            _playerCurHP = _playerMaxHP;
+
+        OnUpdateHpAction?.Invoke(_playerCurHP, _playerMaxHP);
+    }
+
     public void AddGold(long gold)
     {
         _hasGold += gold;
